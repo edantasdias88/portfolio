@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Edilson Dantas — Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <div class="controls">
+          <button id="theme-toggle" aria-label="Alternar tema">🌞</button>
+          <button id="language-toggle" aria-label="Mudar idioma">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO (fixo) -->
+    <section id="hero" aria-label="Hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/video/background.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-content container">
+        <div class="hero-left">
+          <h2 data-i18n="hero.title"></h2>
+          <p data-i18n="hero.description"></p>
+        </div>
+
+        <div class="hero-right">
+          <img
+            class="hero-image"
+            src="assets/images/edilson-dantas.png"
+            alt="Edilson Dantas"
+          />
+        </div>
+      </div>
+
+      <!-- depoimentos dentro do hero -->
+      <div class="testimonials-wrapper container">
+        <div class="testimonials-container">
+          <div class="avatars">
+            <img
+              class="avatar"
+              data-index="0"
+              src="assets/images/avatar1.png"
+              alt="Avatar 1"
+            />
+            <img
+              class="avatar"
+              data-index="1"
+              src="assets/images/avatar2.png"
+              alt="Avatar 2"
+            />
+            <img
+              class="avatar"
+              data-index="2"
+              src="assets/images/avatar3.png"
+              alt="Avatar 3"
+            />
+          </div>
+
+          <div class="testimonial-box">
+            <p class="testimonial-text" data-i18n="testimonials.0.text"></p>
+            <div class="testimonial-meta">
+              <span
+                class="testimonial-author"
+                data-i18n="testimonials.0.author"
+              ></span>
+              <span
+                class="testimonial-role"
+                data-i18n="testimonials.0.role"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / second section -->
+    <section id="about" aria-label="Sobre">
+      <div class="about-wrapper">
+        <div class="container">
+          <h2 data-i18n="about.title"></h2>
+          <p data-i18n="about.text1"></p>
+          <p data-i18n="about.text2"></p>
+          <p data-i18n="about.text3"></p>
+          <p data-i18n="about.text4"></p>
+          <!-- SOLUTIONS -->
+          <section id="solutions">
+            <div class="solutions-wrapper">
+              <h2 data-i18n="solutions.title"></h2>
+            </div>
+          </section>
+        </div>
+        <!-- FEATURES -->
+        <section id="features" aria-label="Soluções">
+          <div class="features-wrapper">
+            <div class="features-carousel">
+              <div class="feature-item">
+                <img src="assets/images/icons/transform.svg" alt="Icon 1" />
+                <p data-i18n="features.0.text"></p>
+              </div>
+              <div class="feature-item">
+                <img src="assets/images/icons/create.svg" alt="Icon 2" />
+                <p data-i18n="features.1.text"></p>
+              </div>
+              <div class="feature-item">
+                <img src="assets/images/icons/reformulate.svg" alt="Icon 3" />
+                <p data-i18n="features.2.text"></p>
+              </div>
+              <div class="feature-item">
+                <img src="assets/images/icons/build.svg" alt="Icon 4" />
+                <p data-i18n="features.3.text"></p>
+              </div>
+              <div class="feature-item">
+                <img src="assets/images/icons/increase.svg" alt="Icon 5" />
+                <p data-i18n="features.4.text"></p>
+              </div>
+              <div class="feature-item">
+                <img src="assets/images/icons/deploy.svg" alt="Icon 6" />
+                <p data-i18n="features.5.text"></p>
+              </div>
+              <div class="feature-item">
+                <img src="assets/images/icons/placeholder.svg" alt="Icon 7" />
+                <p data-i18n="features.6.text"></p>
+              </div>
+              <div class="feature-item">
+                <img src="assets/images/icons/delivery.svg" alt="Icon 8" />
+                <p data-i18n="features.7.text"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="process">
+          <div class="container">
+            <h2 data-i18n="process.title">Nosso Processo</h2>
+            <div class="process-grid">
+              <div class="process-card">
+                <div class="number">1</div>
+                <h3>Descoberta</h3>
+                <p>
+                  Entendemos as necessidades do cliente e analisamos o contexto
+                  do projeto.
+                </p>
+              </div>
+
+              <div class="process-card">
+                <div class="number">2</div>
+                <h3>Planejamento</h3>
+                <p>
+                  Definimos o escopo, cronograma e recursos necessários para a
+                  execução.
+                </p>
+              </div>
+
+              <div class="process-card">
+                <div class="number">3</div>
+                <h3>Execução</h3>
+                <p>
+                  Colocamos o plano em prática, acompanhando de perto cada etapa
+                  do processo.
+                </p>
+              </div>
+
+              <div class="process-card">
+                <div class="number">4</div>
+                <h3>Entrega</h3>
+                <p>
+                  Finalizamos o projeto garantindo qualidade e satisfação total
+                  do cliente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <script src="assets/scripts/i18n.js"></script>
+    <script src="assets/scripts/main.js"></script>
+  </body>
+</html>
