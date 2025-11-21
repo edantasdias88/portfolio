@@ -24,18 +24,24 @@ const translations = {
       },
     ],
     about: {
-      title:
-        "Olá, Me chamo Edilson Dantas. Sou especialista em design de interfaces e marcas.",
-      text1: "Atuo como Product Designer e Product Manager.",
+      name: "Edilson",
+      lastName: "Dantas Dias",
+      role: "Product Designer — Design Ops",
+      intro:
+        "Acredito que o design vai muito além da estética, ele é uma ferramenta estratégica capaz de simplificar problemas complexos, acelerar processos e criar experiências que realmente aproximam pessoas e negócios.",
+      text1:
+        "Com mais de 12 anos de experiência ajudando empresas e equipes a criar produtos digitais que realmente fazem a diferença.",
       text2:
-        "Com mais de 10 anos de experiência ajudando empresas e equipes a criar produtos digitais que realmente fazem a diferença. Atuo de ponta a ponta no processo de design, desde a definição estratégica até a execução, garantindo soluções consistentes, funcionais e visualmente impactantes.",
+        "Atuo de ponta a ponta no processo de design, desde a definição estratégica até a execução, garantindo soluções consistentes, funcionais e visualmente impactantes.",
       text3:
-        "Ao longo da minha carreira, desenvolvi Design Systems completos, implementei processos de Design Ops que aumentaram a eficiência de times e colaborei com equipes multidisciplinares incluindo POs, desenvolvedores, CS e marketing para transformar ideias em produtos escaláveis e de alta qualidade.",
+        "Ao longo da minha carreira, desenvolvi Design Systems completos e implementei processos de Design Ops que aumentaram a eficiência de times.",
       text4:
+        "Colaborei com equipes multidisciplinares incluindo POs, desenvolvedores, CS e marketing para transformar ideias em produtos escaláveis e de alta qualidade.",
+      text5:
         "Minha trajetória une visão estratégica, liderança e execução prática. Tenho facilidade em identificar problemas complexos e propor soluções funcionais, sempre com uma abordagem colaborativa, flexível e didática.",
     },
     solutions: {
-      title: "Soluções de design para produtos e marcas que querem:",
+      title: "Ofereço soluções de design para produtos e marcas que querem:",
     },
     features: [
       {

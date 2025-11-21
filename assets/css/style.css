@@ -154,9 +154,9 @@ body {
   width: 460px;
   height: 100%;
   display: flex;
-  align-items: flex-end; /* garante alinhamento inferior */
+  align-items: flex-end;
   justify-content: flex-end;
-  overflow: hidden; /* evita que nada ultrapasse */
+  overflow: hidden;
   pointer-events: none;
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
@@ -164,9 +164,9 @@ body {
   width: 100%;
   height: 100%;
   -o-object-fit: contain !important;
-     object-fit: contain !important; /* nunca corta */
+     object-fit: contain !important;
   -o-object-position: bottom right !important;
-     object-position: bottom right !important; /* colada embaixo e à direita */
+     object-position: bottom right !important;
   display: block;
   pointer-events: none;
   margin: 0;
@@ -263,18 +263,52 @@ body {
 #about .about-wrapper {
   margin: 0 auto;
   padding: 0;
+  /* =========================
+     🔥 DUAS COLUNAS INSERIDAS AQUI
+  ========================== */
+  /* Segunda linha de colunas */
 }
 #about .about-wrapper h2 {
   color: var(--content-inverse);
-  font-size: 48px;
+  font-size: 72px;
   line-height: 1.1;
-  margin-bottom: 1.25rem;
 }
-#about .about-wrapper p {
+#about .about-wrapper #solutions h2 {
+  font-size: 48px;
+  font-weight: 500;
+  max-width: 70%;
+  margin-bottom: 40px;
+}
+#about .about-wrapper .about-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+}
+#about .about-wrapper .about-columns > div {
   color: var(--content-tertiary);
   font-size: 20px;
   line-height: 1.6;
-  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* alinha conteúdo na parte de baixo */
+}
+#about .about-wrapper .about-columns > div p {
+  margin-bottom: 18px;
+  font-weight: 500;
+  font-size: 18px;
+}
+#about .about-wrapper .about-columns > div p.intro {
+  font-size: 18px;
+  font-weight: 700;
+}
+#about .about-wrapper .about-columns:first-of-type > div {
+  justify-content: flex-end; /* Alinha conteúdo na parte inferior */
+}
+#about .about-wrapper .about-columns:last-of-type {
+  margin: 80px 0 160px 0; /* espaçamento entre linhas */
+}
+#about .about-wrapper .about-columns:last-of-type > div {
+  justify-content: flex-start; /* Alinha conteúdo na parte superior */
 }
 #about .about-wrapper .container {
   padding: 0 var(--container-padding-x);
@@ -285,6 +319,7 @@ body {
   width: 100%;
   background: var(--bg-inverse);
   position: relative;
+  margin-bottom: 180px;
 }
 #features .features-wrapper {
   position: relative;
@@ -455,6 +490,13 @@ body {
   #about {
     padding: 120px 1rem 4rem;
     border-radius: 40px 40px 0 0;
+  }
+  #about .about-wrapper h2 {
+    font-size: 48px;
+  }
+  #about .about-columns {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
   }
   .process-grid {
     flex-direction: column;
