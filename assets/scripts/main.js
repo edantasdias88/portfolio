@@ -1,8 +1,10 @@
 /* ===================================================================
-   main.js - Hero ajustado para imagem encostada na base
+   main.js - Hero ajustado para imagem encostada na base + Modal Cases
+   com conteúdo externo
    =================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== VARIÁVEIS GERAIS =====
   const languageToggle = document.getElementById("language-toggle");
   const themeToggle = document.getElementById("theme-toggle");
   const textElements = document.querySelectorAll("[data-i18n]");
@@ -22,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentTestimonial =
     Number(localStorage.getItem("testimonialIndex")) || 0;
 
+  // ===== FUNÇÃO DE TRADUÇÃO =====
   function safeGetTranslation(lang, key) {
     if (typeof translations === "undefined" || !translations[lang]) return "";
     const parts = key.split(".");
@@ -37,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return value || "";
   }
 
+  // ===== FUNÇÃO DE TEMA =====
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     if (themeToggle) themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
@@ -49,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(saved || currentTheme || "dark");
   })();
 
+  // ===== FUNÇÃO DE IDIOMA =====
   function applyLanguage(lang) {
     if (typeof translations === "undefined" || !translations[lang]) return;
 
@@ -82,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyLanguage(localStorage.getItem("lang") || currentLang);
   })();
 
+  // ===== TESTIMONIALS =====
   function updateTestimonial(index) {
     const list = translations?.[currentLang]?.testimonials || [];
     const t = list[index] || list[0] || { text: "", author: "", role: "" };
@@ -111,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 6000);
   })();
 
+  // ===== DRAG FEATURES =====
   function initFeaturesDrag(carousel) {
     if (!carousel) return;
     let isDown = false,
@@ -156,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initFeaturesDrag(featuresCarousel);
 
+  // ===== PROCESS CARDS =====
   function initProcessCards() {
     if (!processCards.length || !processGrid) return;
     processCards.forEach((c, i) =>
@@ -208,7 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const x = e.pageX - processGrid.offsetLeft;
       processGrid.scrollLeft = scrollLeft - (x - startX) * 2;
     });
-
     processGrid.addEventListener("touchstart", (e) => {
       isDown = true;
       startX = e.touches[0].pageX - processGrid.offsetLeft;
@@ -226,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initProcessCards();
 
-  /* ======== HERO PARALLAX COM BASE FIXA ======== */
+  // ===== HERO PARALLAX =====
   function initHeroParallax() {
     if (!heroImage || !heroLeft || !heroRight) return;
     let ticking = false;
@@ -263,9 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initHeroParallax();
 
-  /* ======== REMOVIDO: ARTEMIA-LIKE FADE-IN ======== */
-  // Nenhuma animação é executada agora.
-
+  // ===== LANGUAGE / THEME TOGGLE =====
   if (languageToggle)
     languageToggle.addEventListener("click", () => {
       applyLanguage(currentLang === "pt" ? "en" : "pt");
@@ -274,4 +279,41 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.addEventListener("click", () => {
       applyTheme(currentTheme === "dark" ? "light" : "dark");
     });
+
+  // ===== MODAL DE CASES COM CONTEÚDO EXTERNO =====
+  const modal = document.getElementById("case-modal");
+  const modalBody = document.getElementById("modal-body"); // div onde HTML externo será carregado
+  const closeBtn = document.querySelector(".modal-close");
+
+  document.querySelectorAll(".case-item").forEach((item) => {
+    item.addEventListener("click", async () => {
+      const file = item.getAttribute("data-file"); // caminho do HTML externo
+
+      if (!file) return;
+
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error("Erro ao carregar conteúdo");
+        const html = await response.text();
+        modalBody.innerHTML = html; // insere conteúdo externo
+        modal.style.display = "block";
+      } catch (err) {
+        modalBody.innerHTML = "<p>Não foi possível carregar o conteúdo.</p>";
+        modal.style.display = "block";
+        console.error(err);
+      }
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalBody.innerHTML = ""; // limpa conteúdo ao fechar
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalBody.innerHTML = "";
+    }
+  });
 });

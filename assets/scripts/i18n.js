@@ -82,11 +82,32 @@ const translations = {
         },
         {
           title: "Equipe enxuta, resultado máximo",
-          text: "Embora trabalhe de forma independente, conto com outros profissionais experientes de confiança para colaborar nos projetos — sem custo adicional para você.",
+          text: "Embora trabalhe de forma independente, conto com outros profissionais experientes de confiança para colaborar nos projetos, sem custo adicional para você.",
         },
         {
           title: "Garantia de excelência",
           text: "Não paro de trabalhar até que o projeto esteja plenamente de acordo com suas expectativas e seja aprovado por você.",
+        },
+      ],
+    },
+    process: {
+      title: "Meu processo de criação, a chave de tudo",
+      items: [
+        {
+          title: "Entender",
+          text: "Bate-papo inicial para conhecer seu projeto e seus objetivos. Nesta fase, definimos o escopo e realizamos pesquisas que embasem decisões estratégicas ao longo do projeto.",
+        },
+        {
+          title: "Idear",
+          text: "Com base nas informações coletadas, crio wireframes [quando necessário] e fluxos de navegação, definindo a estrutura do projeto com clareza e foco em usabilidade.",
+        },
+        {
+          title: "Projetar",
+          text: "Onde o visual, a experiência e suas ideias tomam forma. Aplico boas práticas de design para criar uma solução funcional, intuitiva e com estética refinada — tudo alinhado à sua marca.",
+        },
+        {
+          title: "Entrega",
+          text: "Com o projeto aprovado, entrego tudo organizado e documentado para facilitar a a etapa do desenvolvimento — dentro do padrão de excelência você espera e do prazo acordado.",
         },
       ],
     },

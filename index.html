@@ -112,6 +112,7 @@
             </div>
           </section>
         </div>
+
         <!-- FEATURES -->
         <section id="features" aria-label="Soluções">
           <div class="features-wrapper">
@@ -152,48 +153,157 @@
           </div>
         </section>
 
-        <section id="process">
-          <div class="container">
-            <h2 data-i18n="process.title">Nosso Processo</h2>
-            <div class="process-grid">
-              <div class="process-card">
-                <div class="number">1</div>
-                <h3>Descoberta</h3>
-                <p>
-                  Entendemos as necessidades do cliente e analisamos o contexto
-                  do projeto.
-                </p>
+        <!-- ENTENDA MEU JEITO DE TRABALHAR -->
+        <section id="work-style" aria-label="Entenda meu jeito de trabalhar">
+          <div class="work-wrapper container">
+            <h3 data-i18n="workMethod.title"></h3>
+            <div class="work-columns">
+              <div>
+                <div class="item">
+                  <div class="icon">
+                    <img src="assets/images/icons/rhythm.svg" title="" alt="" />
+                  </div>
+                  <div class="text">
+                    <div
+                      class="title"
+                      data-i18n="workMethod.items.0.title"
+                    ></div>
+                    <div
+                      class="description"
+                      data-i18n="workMethod.items.0.text"
+                    ></div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="icon">
+                    <img src="assets/images/icons/team.svg" title="" alt="" />
+                  </div>
+                  <div class="text">
+                    <div
+                      class="title"
+                      data-i18n="workMethod.items.1.title"
+                    ></div>
+                    <div
+                      class="description"
+                      data-i18n="workMethod.items.1.text"
+                    ></div>
+                  </div>
+                </div>
               </div>
-
-              <div class="process-card">
-                <div class="number">2</div>
-                <h3>Planejamento</h3>
-                <p>
-                  Definimos o escopo, cronograma e recursos necessários para a
-                  execução.
-                </p>
-              </div>
-
-              <div class="process-card">
-                <div class="number">3</div>
-                <h3>Execução</h3>
-                <p>
-                  Colocamos o plano em prática, acompanhando de perto cada etapa
-                  do processo.
-                </p>
-              </div>
-
-              <div class="process-card">
-                <div class="number">4</div>
-                <h3>Entrega</h3>
-                <p>
-                  Finalizamos o projeto garantindo qualidade e satisfação total
-                  do cliente.
-                </p>
+              <div>
+                <div class="item">
+                  <div class="icon">
+                    <img
+                      src="assets/images/icons/communication.svg"
+                      title=""
+                      alt=""
+                    />
+                  </div>
+                  <div class="text">
+                    <div
+                      class="title"
+                      data-i18n="workMethod.items.2.title"
+                    ></div>
+                    <div
+                      class="description"
+                      data-i18n="workMethod.items.2.text"
+                    ></div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="icon">
+                    <img
+                      src="assets/images/icons/assurance.svg"
+                      title=""
+                      alt=""
+                    />
+                  </div>
+                  <div class="text">
+                    <div
+                      class="title"
+                      data-i18n="workMethod.items.3.title"
+                    ></div>
+                    <div
+                      class="description"
+                      data-i18n="workMethod.items.3.text"
+                    ></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
+
+        <section id="process">
+          <div class="container">
+            <h2 data-i18n="process.title">
+              Meu processo de criação, a chave de tudo
+            </h2>
+            <div class="process-grid">
+              <div class="process-card">
+                <div class="number">1</div>
+                <div class="content">
+                  <h3 data-i18n="process.items.0.title"></h3>
+                  <p data-i18n="process.items.0.text"></p>
+                </div>
+              </div>
+
+              <div class="process-card">
+                <div class="number">2</div>
+                <div class="content">
+                  <h3 data-i18n="process.items.1.title"></h3>
+                  <p data-i18n="process.items.1.text"></p>
+                </div>
+              </div>
+
+              <div class="process-card">
+                <div class="number">3</div>
+                <div class="content">
+                  <h3 data-i18n="process.items.2.title"></h3>
+                  <p data-i18n="process.items.2.text"></p>
+                </div>
+              </div>
+
+              <div class="process-card">
+                <div class="number">4</div>
+                <div class="content">
+                  <h3 data-i18n="process.items.3.title"></h3>
+                  <p data-i18n="process.items.3.text"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cases">
+          <div class="container">
+            <h2>Cases</h2>
+            <div class="cases-grid">
+              <div class="case-item" data-file="./cases/caa.html">
+                <img src="assets/images/cases/1-cover.png" alt="Case 1" />
+                <div class="overlay">
+                  <h3>Case 1</h3>
+                </div>
+              </div>
+
+              <div class="case-item" data-file="cases/case2.html">
+                <img src="assets/images/cases/1-cover.png" alt="Case 2" />
+                <div class="overlay">
+                  <h3>Case 2</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="case-modal">
+          <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="modal-body"></div>
+            <!-- Aqui vai o conteúdo do HTML externo -->
+          </div>
+        </div>
       </div>
     </section>
 
