@@ -85,7 +85,10 @@ body {
   }
 }
 
-/* ====== HERO ====== */
+/* ================================================================= */
+/* ====================== HERO COMPLETO AJUSTADO =================== */
+/* ================================================================= */
+
 #hero {
   position: fixed;
   top: 0;
@@ -106,7 +109,7 @@ body {
     object-fit: cover;
     z-index: 0;
     opacity: var(--video-opacity);
-    transition: opacity 0.25s ease;
+    transition: opacity 0.5s ease;
   }
 
   .hero-content {
@@ -119,40 +122,58 @@ body {
     justify-content: space-between;
     padding: 0 var(--container-padding-x);
     height: 100vh;
+    gap: 2rem;
+    transition: all 0.5s ease;
 
     .hero-left {
-      max-width: 760px;
+      max-width: 820px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.5s ease, opacity 0.5s ease;
 
       h2 {
-        font-size: 72px;
+        font-size: 54px;
         font-weight: 100;
-        line-height: 1.02;
+        line-height: 1.05;
         color: var(--content-primary);
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
+        opacity: 1;
+        transform: translateY(0);
+        transition: transform 0.5s ease, opacity 0.5s ease;
       }
 
       p {
         font-size: 24px;
         line-height: 1.6;
         color: var(--content-secondary);
-        max-width: 670px;
+        max-width: 760px;
+        opacity: 1;
+        transform: translateY(0);
+        transition: transform 0.5s ease, opacity 0.5s ease;
       }
     }
 
+    /* ================= HERO RIGHT AJUSTADO ================= */
     .hero-right {
       position: relative;
       flex: 0 0 auto;
-      width: 420px;
+      width: 460px;
       height: 100%;
+      display: flex;
+      align-items: flex-end; /* garante alinhamento inferior */
+      justify-content: flex-end;
+      overflow: hidden; /* evita que nada ultrapasse */
+      pointer-events: none;
+      transition: transform 0.5s ease, opacity 0.5s ease;
 
       .hero-image {
-        position: absolute;
-        bottom: 0;
-        right: 0;
         width: 100%;
-        height: auto;
-        transform: translateY(0);
-        transition: transform 0.15s linear;
+        height: 100%;
+        object-fit: contain !important; /* nunca corta */
+        object-position: bottom right !important; /* colada embaixo e à direita */
+        display: block;
+        pointer-events: none;
+        margin: 0;
       }
     }
   }
@@ -194,7 +215,7 @@ body {
           border: 2px solid transparent;
           margin-left: -14px;
           cursor: pointer;
-          transition: transform 0.18s ease, border-color 0.18s ease;
+          transition: transform 0.25s ease, border-color 0.25s ease;
           background: var(--bg-page);
 
           &:first-child {
@@ -447,16 +468,43 @@ body {
     }
   }
 }
+
 /* ====== RESPONSIVE GLOBAL ====== */
 @media (max-width: 900px) {
   #hero .hero-content {
     flex-direction: column;
     text-align: center;
+    gap: 3rem;
+
+    .hero-left {
+      max-width: 100%;
+
+      h2 {
+        font-size: 48px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+
+    .hero-right {
+      width: 280px;
+      height: auto;
+      align-items: center;
+
+      .hero-image {
+        object-fit: contain !important;
+        object-position: bottom center !important;
+      }
+    }
   }
+
   #about {
     padding: 120px 1rem 4rem;
     border-radius: 40px 40px 0 0;
   }
+
   .process-grid {
     flex-direction: column;
     gap: 1.5rem;
@@ -469,7 +517,6 @@ body {
     height: auto;
   }
 
-  /* Em mobile, mantenha a descrição escondida até o click */
   .process-card .content p {
     max-height: 0;
     opacity: 0;

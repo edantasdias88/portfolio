@@ -2,9 +2,9 @@ const translations = {
   pt: {
     hero: {
       title:
-        "Construo marcas e experiências digitais únicas para empresas inovadoras.",
+        "Crio marcas e produtos digitais que unem estratégia, design e performance.",
       description:
-        "Apaixonado por criar experiências digitais significativas que resolvam problemas reais e encantem os usuários.",
+        "Minha missão é simplificar o complexo e entregar experiências que realmente importam para as pessoas.",
     },
     testimonials: [
       {
@@ -24,7 +24,8 @@ const translations = {
       },
     ],
     about: {
-      title: "Olá, me chamo Edilson Dantas.",
+      title:
+        "Olá, Me chamo Edilson Dantas. Sou especialista em design de interfaces e marcas.",
       text1: "Atuo como Product Designer e Product Manager.",
       text2:
         "Com mais de 10 anos de experiência ajudando empresas e equipes a criar produtos digitais que realmente fazem a diferença. Atuo de ponta a ponta no processo de design, desde a definição estratégica até a execução, garantindo soluções consistentes, funcionais e visualmente impactantes.",
