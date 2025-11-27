@@ -1,0 +1,35 @@
+.title-lg {
+  font-size: var(--size-72);
+  line-height: var(--size-80);
+}
+.title-md {
+  font-size: var(--size-54);
+  line-height: var(--size-62);
+}
+.title-sm {
+  font-size: var(--size-24);
+  line-height: var(--size-32);
+}
+
+p.xxl {
+  font-size: var(--size-20);
+  line-height: var(--size-28);
+}
+p.xl {
+  font-size: var(--size-18);
+  line-height: var(--size-26);
+}
+p.lg {
+  font-size: var(--size-16);
+  line-height: var(--size-26);
+}
+p.md {
+  font-size: var(--size-14);
+  line-height: var(--size-22);
+}
+@media (max-width: 360px) {
+  .title-md {
+    font-size: var(--size-32);
+    line-height: var(--size-40);
+  }
+}

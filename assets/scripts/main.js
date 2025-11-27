@@ -1,6 +1,6 @@
 /* ===================================================================
    main.js - Hero ajustado para imagem encostada na base + Modal Cases
-   com conteúdo externo
+   com conteúdo externo + Remoção de parallax em <= 320px
    =================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroImage = document.querySelector(".hero-image");
 
   let currentLang = localStorage.getItem("lang") || "pt";
-  let currentTheme = localStorage.getItem("theme") || "dark";
+  let currentTheme = localStorage.getItem("theme") || "light";
   let currentTestimonial =
     Number(localStorage.getItem("testimonialIndex")) || 0;
 
@@ -43,14 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== FUNÇÃO DE TEMA =====
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    if (themeToggle) themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+    if (themeToggle) themeToggle.textContent = theme === "light" ? "🌙" : "☀️";
     currentTheme = theme;
     localStorage.setItem("theme", theme);
   }
 
+  // ===== TEMA INICIAL =====
   (function initTheme() {
     const saved = localStorage.getItem("theme");
-    applyTheme(saved || currentTheme || "dark");
+    if (!saved) {
+      applyTheme("light");
+      return;
+    }
+    applyTheme(saved);
   })();
 
   // ===== FUNÇÃO DE IDIOMA =====
@@ -216,6 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const x = e.pageX - processGrid.offsetLeft;
       processGrid.scrollLeft = scrollLeft - (x - startX) * 2;
     });
+
     processGrid.addEventListener("touchstart", (e) => {
       isDown = true;
       startX = e.touches[0].pageX - processGrid.offsetLeft;
@@ -268,7 +274,23 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  initHeroParallax();
+  // ⭐⭐⭐ AJUSTE FINAL — Parallax só em telas > 320px ⭐⭐⭐
+  if (window.innerWidth > 320) {
+    initHeroParallax();
+  } else {
+    // Remove qualquer transform que o CSS aplique
+    if (heroLeft) {
+      heroLeft.style.transform = "none";
+      heroLeft.style.opacity = "1";
+    }
+    if (heroRight) {
+      heroRight.style.transform = "none";
+      heroRight.style.opacity = "1";
+    }
+    if (heroImage) {
+      heroImage.style.transform = "none";
+    }
+  }
 
   // ===== LANGUAGE / THEME TOGGLE =====
   if (languageToggle)
@@ -280,14 +302,14 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTheme(currentTheme === "dark" ? "light" : "dark");
     });
 
-  // ===== MODAL DE CASES COM CONTEÚDO EXTERNO =====
+  // ===== MODAL DE CASES =====
   const modal = document.getElementById("case-modal");
-  const modalBody = document.getElementById("modal-body"); // div onde HTML externo será carregado
+  const modalBody = document.getElementById("modal-body");
   const closeBtn = document.querySelector(".modal-close");
 
   document.querySelectorAll(".case-item").forEach((item) => {
     item.addEventListener("click", async () => {
-      const file = item.getAttribute("data-file"); // caminho do HTML externo
+      const file = item.getAttribute("data-file");
 
       if (!file) return;
 
@@ -295,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const response = await fetch(file);
         if (!response.ok) throw new Error("Erro ao carregar conteúdo");
         const html = await response.text();
-        modalBody.innerHTML = html; // insere conteúdo externo
+        modalBody.innerHTML = html;
         modal.style.display = "block";
       } catch (err) {
         modalBody.innerHTML = "<p>Não foi possível carregar o conteúdo.</p>";
@@ -307,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
-    modalBody.innerHTML = ""; // limpa conteúdo ao fechar
+    modalBody.innerHTML = "";
   });
 
   window.addEventListener("click", (e) => {

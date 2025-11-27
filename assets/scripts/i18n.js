@@ -26,7 +26,7 @@ const translations = {
     about: {
       name: "Edilson",
       lastName: "Dantas Dias",
-      role: "Product Designer — Design Ops",
+      role: "PRODUCT DESIGNER - DESIGN OPS",
       intro:
         "Acredito que o design vai muito além da estética, ele é uma ferramenta estratégica capaz de simplificar problemas complexos, acelerar processos e criar experiências que realmente aproximam pessoas e negócios.",
       text1:
