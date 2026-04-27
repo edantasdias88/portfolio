@@ -3,14 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+
+    "sass": "sass assets/css/main.scss assets/css/main.css --watch",
+    "css": "sass assets/css/main.scss assets/css/main.css"
   },
+
   "devDependencies": {
     "vite": "^8.0.10"
   },
+
   "dependencies": {
     "sass": "^1.99.0"
   }
