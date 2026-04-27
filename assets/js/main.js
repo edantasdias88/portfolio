@@ -5,7 +5,6 @@ import './theme.js'
 import './i18n.js'
 import './hero.js'
 import initCases from './cases.js'
-import '../css/main.css'
 
 
 // ========================================
