@@ -6,13 +6,29 @@ export default function initCases() {
   if (!overlay || !content) return
 
   // ========================================
+  // 🔥 BASE DINÂMICA
+  // ========================================
+  const BASE =
+    window.location.hostname.includes('github.io')
+      ? '/portfolio'
+      : ''
+
+  const CASES_PATH = `${BASE}/cases`
+
+  // ========================================
   // 🔥 ABRIR CASE
   // ========================================
   async function openCase(slug, push = true) {
     try {
-      const url = `/cases/${slug}/`
+      const cleanSlug = slug.replace(/^\/|\/$/g, '')
+      const url = `${CASES_PATH}/${cleanSlug}/`
 
       const res = await fetch(url)
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`)
+      }
+
       const html = await res.text()
 
       content.innerHTML = html
@@ -21,7 +37,7 @@ export default function initCases() {
       document.body.style.overflow = 'hidden'
 
       if (push) {
-        history.pushState({}, '', `/cases/${slug}`)
+        history.pushState({}, '', `${CASES_PATH}/${cleanSlug}`)
       }
 
       bindCloseButton()
@@ -37,12 +53,15 @@ export default function initCases() {
   cards.forEach(card => {
     card.addEventListener('click', () => {
       const slug = card.dataset.slug
+
+      if (!slug) return
+
       openCase(slug)
     })
   })
 
   // ========================================
-  // 🔥 FECHAR
+  // 🔥 FECHAR CASE
   // ========================================
   function closeCase() {
     overlay.classList.remove('is-active')
@@ -54,7 +73,7 @@ export default function initCases() {
   }
 
   // ========================================
-  // 🔥 BOTÃO CLOSE
+  // 🔥 BOTÃO FECHAR
   // ========================================
   function bindCloseButton() {
     const btn = content.querySelector('.case-close')
@@ -62,19 +81,19 @@ export default function initCases() {
     if (!btn) return
 
     btn.addEventListener('click', () => {
-      history.pushState({}, '', '/')
+      history.pushState({}, '', BASE || '/')
       closeCase()
     })
   }
 
   // ========================================
-  // 🔥 BACK BUTTON
+  // 🔥 VOLTAR NAVEGADOR
   // ========================================
   window.addEventListener('popstate', () => {
     const path = window.location.pathname
 
-    if (path.startsWith('/cases/')) {
-      const slug = path.split('/cases/')[1]
+    if (path.startsWith(CASES_PATH)) {
+      const slug = path.replace(`${CASES_PATH}/`, '')
       openCase(slug, false)
     } else {
       closeCase()
@@ -82,21 +101,21 @@ export default function initCases() {
   })
 
   // ========================================
-  // 🔥 ESC
+  // 🔥 ESC FECHA
   // ========================================
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      history.pushState({}, '', '/')
+      history.pushState({}, '', BASE || '/')
       closeCase()
     }
   })
 
   // ========================================
-  // 🔥 CLICK FORA
+  // 🔥 CLICK FORA FECHA
   // ========================================
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
-      history.pushState({}, '', '/')
+      history.pushState({}, '', BASE || '/')
       closeCase()
     }
   })
@@ -106,8 +125,8 @@ export default function initCases() {
   // ========================================
   const path = window.location.pathname
 
-  if (path.startsWith('/cases/')) {
-    const slug = path.split('/cases/')[1]
+  if (path.startsWith(CASES_PATH)) {
+    const slug = path.replace(`${CASES_PATH}/`, '')
 
     if (slug) {
       openCase(slug, false)
