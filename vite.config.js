@@ -1,13 +1,13 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 
 export default defineConfig(({ command }) => ({
-  base: command === 'serve' ? '/' : '/portfolio/',
+  base: command === "serve" ? "/" : "/portfolio/",
 
-  appType: 'spa',
+  appType: "spa",
 
   server: {
     fs: {
-      strict: false
-    }
-  }
-}))
+      strict: false,
+    },
+  },
+}));

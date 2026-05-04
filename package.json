@@ -3,20 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-
     "sass": "sass assets/css/main.scss assets/css/main.css --watch",
-    "css": "sass assets/css/main.scss assets/css/main.css"
+    "css": "sass assets/css/main.scss assets/css/main.css",
+    "format": "prettier --write ."
   },
-
   "devDependencies": {
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "prettier": "^3.0.0"
   },
-
   "dependencies": {
     "sass": "^1.99.0"
   }

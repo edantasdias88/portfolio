@@ -1,23 +1,23 @@
 // hero.js
 
-import { translations } from './i18n.js'
+import { translations } from "./i18n.js";
 
-const INTERVAL = 5000 // 5s
+const INTERVAL = 5000; // 5s
 
-const avatars = document.querySelectorAll('.avatar')
-const text = document.querySelector('.hero__testimonials-content p')
-const name = document.querySelector('.hero__testimonials-author strong')
-const role = document.querySelector('.hero__testimonials-author span')
+const avatars = document.querySelectorAll(".avatar");
+const text = document.querySelector(".hero__testimonials-content p");
+const name = document.querySelector(".hero__testimonials-author strong");
+const role = document.querySelector(".hero__testimonials-author span");
 
-let current = 0
-let timer = null
+let current = 0;
+let timer = null;
 
 /* =========================
    GET CURRENT LANG
 ========================= */
 
 function getCurrentLang() {
-  return document.documentElement.getAttribute('lang') || 'pt'
+  return document.documentElement.getAttribute("lang") || "pt";
 }
 
 /* =========================
@@ -25,17 +25,17 @@ function getCurrentLang() {
 ========================= */
 
 function getTestimonials() {
-  const lang = getCurrentLang()
+  const lang = getCurrentLang();
 
-  const langData = translations?.[lang]
-  const hero = langData?.hero
-  const testimonials = hero?.testimonials
+  const langData = translations?.[lang];
+  const hero = langData?.hero;
+  const testimonials = hero?.testimonials;
 
   if (!testimonials || !Array.isArray(testimonials)) {
-    return []
+    return [];
   }
 
-  return testimonials
+  return testimonials;
 }
 
 /* =========================
@@ -43,22 +43,22 @@ function getTestimonials() {
 ========================= */
 
 function update(index) {
-  const testimonials = getTestimonials()
+  const testimonials = getTestimonials();
 
-  if (!testimonials.length) return
+  if (!testimonials.length) return;
 
-  const item = testimonials[index]
-  if (!item) return
+  const item = testimonials[index];
+  if (!item) return;
 
-  if (text) text.textContent = `“${item.text}”`
-  if (name) name.textContent = item.name
-  if (role) role.textContent = item.role
+  if (text) text.textContent = `“${item.text}”`;
+  if (name) name.textContent = item.name;
+  if (role) role.textContent = item.role;
 
   avatars.forEach((avatar, i) => {
-    avatar.classList.toggle('is-active', i === index)
-  })
+    avatar.classList.toggle("is-active", i === index);
+  });
 
-  current = index
+  current = index;
 }
 
 /* =========================
@@ -66,22 +66,22 @@ function update(index) {
 ========================= */
 
 function startAutoplay() {
-  stopAutoplay()
+  stopAutoplay();
 
   timer = setInterval(() => {
-    const testimonials = getTestimonials()
+    const testimonials = getTestimonials();
 
-    if (!testimonials.length) return
+    if (!testimonials.length) return;
 
-    let next = current + 1
-    if (next >= testimonials.length) next = 0
+    let next = current + 1;
+    if (next >= testimonials.length) next = 0;
 
-    update(next)
-  }, INTERVAL)
+    update(next);
+  }, INTERVAL);
 }
 
 function stopAutoplay() {
-  if (timer) clearInterval(timer)
+  if (timer) clearInterval(timer);
 }
 
 /* =========================
@@ -90,13 +90,13 @@ function stopAutoplay() {
 
 function bindEvents() {
   avatars.forEach((avatar, index) => {
-    avatar.addEventListener('click', () => {
-      update(index)
+    avatar.addEventListener("click", () => {
+      update(index);
 
-      stopAutoplay()
-      setTimeout(startAutoplay, 8000)
-    })
-  })
+      stopAutoplay();
+      setTimeout(startAutoplay, 8000);
+    });
+  });
 }
 
 /* =========================
@@ -104,9 +104,9 @@ function bindEvents() {
 ========================= */
 
 function handleLanguageChange() {
-  document.addEventListener('languageChanged', () => {
-    update(0)
-  })
+  document.addEventListener("languageChanged", () => {
+    update(0);
+  });
 }
 
 /* =========================
@@ -114,13 +114,13 @@ function handleLanguageChange() {
 ========================= */
 
 function initHero() {
-  if (!avatars.length) return
+  if (!avatars.length) return;
 
-  bindEvents()
-  handleLanguageChange()
+  bindEvents();
+  handleLanguageChange();
 
-  update(0)
-  startAutoplay()
+  update(0);
+  startAutoplay();
 }
 
-initHero()
+initHero();
