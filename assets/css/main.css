@@ -136,7 +136,7 @@
   --content-fixed-light: var(--neutral-100);
 }
 
-[data-theme="dark"] {
+[data-theme=dark] {
   --background-canvas: var(--neutral-1000);
   --background-raised: var(--neutral-1100);
   --background-inverse: var(--neutral-50);
@@ -178,55 +178,42 @@
   --font-weight-bold: 700;
 }
 
-.body-sm,
-.case-detail .routes-mode_step-text,
-.case-detail .routes-mode_step-number,
-.case-detail .routes-mode_map-card button,
-.case-detail .routes-mode_map-card span,
-.case-detail .case-intro_tags span {
+.body-sm, .case-detail .routes-mode_step-text, .case-detail .routes-mode_step-number, .case-detail .routes-mode_map-card button, .case-detail .routes-mode_map-card span, .case-detail .case-intro_tags span {
   font-family: var(--font-family-base);
   font-size: var(--font-size-body-sm);
   line-height: var(--line-height-normal);
   letter-spacing: var(--letter-spacing-normal);
 }
 
-.body-md,
-.case-detail .deslizae_info p {
+.body-md, .case-detail .deslizae_info p {
   font-family: var(--font-family-base);
   font-size: var(--font-size-body-md);
   line-height: var(--line-height-normal);
   letter-spacing: var(--letter-spacing-normal);
 }
 
-.body-lg,
-.case-detail .routes-mode_text,
-.case-detail .camera-mode_text,
-.case-detail .deslizae_text,
-.case-detail .case-intro_overview p {
+.body-lg, .case-detail .routes-mode_text, .case-detail .camera-mode_text, .case-detail .deslizae_text, .case-detail .case-intro_overview p {
   font-family: var(--font-family-base);
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-normal);
   letter-spacing: var(--letter-spacing-normal);
 }
 
-.heading-sm,
-.case-card__content h3 {
+.heading-sm, .case-card__content h3 {
   font-family: var(--font-family-base);
   font-size: var(--font-size-heading-sm);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
 }
 
-.heading-md,
-.case-detail .deslizae_info h3 {
+.heading-md, .case-detail .deslizae_info h3 {
   font-family: var(--font-family-base);
   font-size: var(--font-size-heading-md);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
 }
 
-.heading-lg,
-.case-detail .case-intro_subtitle {
+.heading-lg, .case-detail .case-intro_subtitle {
   font-family: var(--font-family-base);
   font-size: var(--font-size-heading-lg);
   line-height: var(--line-height-tight);
@@ -247,18 +234,14 @@
   letter-spacing: var(--letter-spacing-tight);
 }
 
-.display-md,
-.case-detail .routes-mode_title,
-.case-detail .camera-mode_title,
-.case-detail .deslizae_title {
+.display-md, .case-detail .routes-mode_title, .case-detail .camera-mode_title, .case-detail .deslizae_title {
   font-family: var(--font-family-base);
   font-size: var(--font-size-display-md);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
 }
 
-.display-lg,
-.case-detail .case-intro_title {
+.display-lg, .case-detail .case-intro_title {
   font-family: var(--font-family-base);
   font-size: var(--font-size-display-lg);
   line-height: var(--line-height-tight);
@@ -273,15 +256,7 @@
   font-weight: var(--font-weight-regular);
 }
 
-.weight-medium,
-.case-detail .routes-mode_step-number,
-.case-detail .routes-mode_map-card button,
-.case-detail .routes-mode_title,
-.case-detail .camera-mode_title,
-.case-detail .deslizae_info h3,
-.case-detail .deslizae_title,
-.case-detail .case-intro_tags span,
-.case-detail .case-intro_title {
+.weight-medium, .case-detail .routes-mode_step-number, .case-detail .routes-mode_map-card button, .case-detail .routes-mode_title, .case-detail .camera-mode_title, .case-detail .deslizae_info h3, .case-detail .deslizae_title, .case-detail .case-intro_tags span, .case-detail .case-intro_title {
   font-weight: var(--font-weight-medium);
 }
 
@@ -374,9 +349,7 @@ table {
 html {
   background-color: var(--background-canvas);
   color: var(--content-primary);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 16px;
   font-family: var(--font-primary);
 }
@@ -461,7 +434,7 @@ html {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   opacity: 0.15;
   z-index: 0;
 }
@@ -532,7 +505,7 @@ html {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .hero .avatar.is-active {
   filter: grayscale(0%);
@@ -599,7 +572,7 @@ html {
   width: 70%;
   height: 70%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   border-radius: var(--border-radius-circle);
   z-index: 2;
 }
@@ -694,9 +667,7 @@ html {
   color: var(--content-inverse);
   opacity: 0;
   z-index: 9999;
-  transition:
-    opacity 0.2s ease,
-    transform 0.1s ease;
+  transition: opacity 0.2s ease, transform 0.1s ease;
 }
 
 .drag-cursor_text {
@@ -996,12 +967,8 @@ html {
   border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.2),
-    0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 4px 20px rgba(0, 0, 0, 0.1);
   /* IMAGE */
 }
 .case-card__image {
@@ -1010,7 +977,7 @@ html {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   transition: transform 0.6s ease;
 }
 .case-card {
@@ -1022,12 +989,7 @@ html {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 40%,
-    rgba(0, 0, 0, 0) 70%
-  );
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0) 70%);
   transition: all 0.4s ease;
 }
 .case-card {
@@ -1055,30 +1017,23 @@ html {
 }
 .case-card:hover {
   transform: translateY(-8px);
-  box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.3),
-    0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3), 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 .case-card:hover::after {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.4) 40%,
-    rgba(0, 0, 0, 0) 70%
-  );
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 70%);
 }
 .case-card:hover .case-card__image {
   transform: scale(1.05);
 }
 
 .case-close {
+  display: none;
   position: fixed;
   top: var(--space-xl);
   right: var(--space-xl);
   z-index: 10050;
   width: 48px;
   height: 48px;
-  display: flex;
   align-items: center;
   justify-content: center;
   border: none;
@@ -1089,14 +1044,19 @@ html {
   cursor: pointer;
   font-size: 22px;
   line-height: 1;
-  transition:
-    transform 0.25s ease,
-    rotate 0.25s ease;
+  transition: transform 0.25s ease, rotate 0.25s ease;
 }
 .case-close:hover {
   transform: scale(1.06);
   rotate: 90deg;
   background: var(--background-inverse);
+}
+
+.case-open .case-close {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1);
 }
 
 .case-overlay {
@@ -1148,7 +1108,7 @@ html {
   height: 600px;
   display: block;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 .case-detail .case-intro {
   padding: var(--layout-sm) 0;
@@ -1295,9 +1255,7 @@ html {
   position: absolute;
   width: var(--size-20);
   height: var(--size-20);
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 .case-detail .deslizae .icon-outline {
   opacity: 1;
@@ -1338,14 +1296,12 @@ html {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   border-radius: var(--border-radius-xl);
   opacity: 0;
   transform: scale(1.02);
   pointer-events: none;
-  transition:
-    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .case-detail .deslizae_img.is-active {
   opacity: 1;
@@ -1439,7 +1395,7 @@ html {
   width: 240px;
   height: 480px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   border-radius: var(--border-radius-xl);
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -1540,7 +1496,7 @@ html {
   height: auto;
   aspect-ratio: 9/16;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   border-radius: var(--border-radius-lg);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
@@ -1692,4 +1648,4 @@ html {
   .work__grid {
     gap: var(--layout-xs);
   }
-} /*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

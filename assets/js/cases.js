@@ -2,6 +2,7 @@ export default function initCases() {
   const cards = document.querySelectorAll(".case-card");
   const overlay = document.querySelector(".case-overlay");
   const content = document.querySelector(".case-overlay__content");
+  const closeBtn = document.querySelector(".case-close");
 
   if (!overlay || !content) return;
 
@@ -35,11 +36,14 @@ export default function initCases() {
       overlay.classList.add("is-active");
       document.body.style.overflow = "hidden";
 
+      // 👉 delay para aparecer o botão
+      setTimeout(() => {
+        document.body.classList.add("case-open");
+      }, 300);
+
       if (push) {
         history.pushState({}, "", `${CASES_PATH}/${cleanSlug}`);
       }
-
-      bindCloseButton();
     } catch (err) {
       console.error("Erro ao carregar case:", err);
     }
@@ -64,6 +68,9 @@ export default function initCases() {
   function closeCase() {
     overlay.classList.remove("is-active");
 
+    // 👉 remove imediatamente
+    document.body.classList.remove("case-open");
+
     setTimeout(() => {
       content.innerHTML = "";
       document.body.style.overflow = "";
@@ -73,12 +80,8 @@ export default function initCases() {
   // ========================================
   // 🔥 BOTÃO FECHAR
   // ========================================
-  function bindCloseButton() {
-    const btn = content.querySelector(".case-close");
-
-    if (!btn) return;
-
-    btn.addEventListener("click", () => {
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
       history.pushState({}, "", BASE || "/");
       closeCase();
     });
@@ -119,7 +122,7 @@ export default function initCases() {
   });
 
   // ========================================
-  // 🔥 LOAD INICIAL (DEEP LINK)
+  // 🔥 LOAD INICIAL
   // ========================================
   const path = window.location.pathname;
 

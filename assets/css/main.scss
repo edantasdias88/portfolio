@@ -816,6 +816,7 @@ html {
   }
 }
 .case-close {
+  display: none;
   position: fixed;
   top: var(--space-xl);
   right: var(--space-xl);
@@ -824,7 +825,6 @@ html {
   width: 48px;
   height: 48px;
 
-  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -849,6 +849,13 @@ html {
     rotate: 90deg;
     background: var(--background-inverse);
   }
+}
+
+.case-open .case-close {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1);
 }
 .case-overlay {
   position: fixed;
